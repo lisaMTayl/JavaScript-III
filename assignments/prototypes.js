@@ -7,7 +7,7 @@
   
   Each constructor function has unique properties and methods that are defined in their block comments below:
 */
-  
+
 /*
   === GameObject ===
   * createdAt
@@ -32,13 +32,44 @@
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
- 
+
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
   * Instances of CharacterStats should have all of the same properties as GameObject.
 */
+function GameObject() {
+    this.name = name;
 
+    function GameObject(attributes) {
+        this.name = attributes.name;
+    }
+}
+
+GameObject.prototype.destroy = function () {
+}
+
+function CharacterStats(attributes) {
+    GameObject.call(this, attributes);
+}
+
+CharacterStats.prototype = Object.create(GameObject.prototype);
+CharacterStats.prototype.takeDamage = function () {
+
+};
+
+function Humanoid(attributes) {
+    CharacterStats.call(this, attributes);
+    this.team = attributes.team
+}
+
+Humanoid.prototype = Object.create(CharacterStats.prototype);
+Humanoid.prototype.greet = function () {
+};
+
+new Humanoid({
+    name: "Lisa"
+});
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
 /*
@@ -104,7 +135,7 @@
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 */
 
-  // Stretch task: 
-  // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
-  // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-  // * Create two new objects, one a villain and one a hero and fight it out with methods!
+// Stretch task:
+// * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
+// * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+// * Create two new objects, one a villain and one a hero and fight it out with methods!

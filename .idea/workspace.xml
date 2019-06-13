@@ -23,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assignments/prototypes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="18" column="4" lean-forward="true" selection-start-line="17" selection-end-line="23" selection-end-column="6" />
+            <state relative-caret-position="325">
+              <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -141,12 +141,12 @@
       <workItem from="1560361835669" duration="2000" />
       <workItem from="1560361910383" duration="2740000" />
       <workItem from="1560376716496" duration="1335000" />
-      <workItem from="1560453257696" duration="5239000" />
+      <workItem from="1560453257696" duration="6307000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9316000" />
+    <option name="totallyTimeSpent" value="10384000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="1080" width="1920" height="1080" extended-state="6" />
@@ -245,8 +245,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assignments/prototypes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="18" column="4" lean-forward="true" selection-start-line="17" selection-end-line="23" selection-end-column="6" />
+        <state relative-caret-position="325">
+          <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

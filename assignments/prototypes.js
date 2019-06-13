@@ -20,7 +20,7 @@ function GameObject(attributes) {
     this.name = attributes.name;
     this.dimensions = attributes.dimensions;
 }
-
+// add destroy to GameObject as prototype to allow inheritance
 GameObject.prototype.destroy = function () {
     return `${this.name} was removed from the game`;
 };
@@ -32,13 +32,15 @@ GameObject.prototype.destroy = function () {
   * should inherit destroy() from GameObject's prototype
 */
 function CharacterStats(attributes) {
-    this.healthPoints = healthPoints;
-    GameObject.call(this, )
-}
+    this.healthPoints = attributes.healthPoints;
+    GameObject.call(this, attributes); //binds to GameObject allows inheritance of destroy()
+   }
 
 CharacterStats.prototype.takeDamage = function () {
-    return "<object name> took damage";
+    return `${this.name} took damage.`;
 };
+
+CharacterStats.prototype = Object.create(GameObject.prototype); // inherit destroy ()
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -48,44 +50,25 @@ CharacterStats.prototype.takeDamage = function () {
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
+function Humanoid (attributes) {
+    CharacterStats.call(this, attributes);  // allow attribute inheritance from CharacterStats
+    this.team = attributes.team;
+    this.weapons = attributes.weapons;
+    this.language = attributes.language;
+}
 
+
+Humanoid.prototype = Object.create(CharacterStats.prototype); // inherit takeDamage() from CharacterStats
+Humanoid.prototype = Object.create(GameObject.prototype); // inherit destroy ()
+Humanoid.prototype.greet = function () {
+    return `${this.name} offers a greeting in ${this.language}.`;
+};
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
   * Instances of CharacterStats should have all of the same properties as GameObject.
 */
-function GameObject() {
-    this.name = name;
 
-    function GameObject(attributes) {
-        this.name = attributes.name;
-    }
-}
-
-GameObject.prototype.destroy = function () {
-}
-
-function CharacterStats(attributes) {
-    GameObject.call(this, attributes);
-}
-
-CharacterStats.prototype = Object.create(GameObject.prototype);
-CharacterStats.prototype.takeDamage = function () {
-
-};
-
-function Humanoid(attributes) {
-    CharacterStats.call(this, attributes);
-    this.team = attributes.team
-}
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype.greet = function () {
-};
-
-new Humanoid({
-    name: "Lisa"
-});
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
 /*
